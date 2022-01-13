@@ -4,7 +4,8 @@
 
 ## Task 1
 > Fun stuff:
-[Link](https://jdweak.github.io/cse15l-lab-reports/)
+
+[Link](https://jdweak.github.io/cse15l-lab-reports/)\
 ![Image](https://github.com/jdweak/cse15l-lab-reports/blob/main/programmingjokesquish.jpg)
 
 ---
