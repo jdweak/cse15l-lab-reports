@@ -1,8 +1,8 @@
-![Image](images/sshmeme.jpg)
-
 # Week 2 Lab Report: Remote Server Connections
 
 > *This lab report will give the basic steps for connecting remotely to the UCSD ieng6 computers. Note these instructions are for Windows, MacOS steps may vary somewhat*
+
+![Image](images/sshmeme.jpg)
 
 ## Task 1: Installing VScode
 > VS Code is a popular IDE that can be used for many programming tasks
