@@ -1,20 +1,10 @@
-# Week 2 Lab Report: Remote Server Connections
+# CSE15l: Software Tools and Techniques Lab Reports
 
-*This lab report will give the basic steps for connecting remotely to the UCSD ieng6 computers*
+*Linked below are the biweekly lab reports for cse15l*
 
-## Task 1
-> Fun stuff:
+## Reports
 
-[Link](https://jdweak.github.io/cse15l-lab-reports/)\
-![Image](programmingjokesquish.jpg)
 
----
+>[Lab Report 1: Remote Server Connection](https://jdweak.github.io/cse15l-lab-reports/lab-report-1-week-2.html)
 
-## Task 2
-1. Hello
-2. World
-
-```
-# code block
-System.out.println("Hello World");
-```
+![Image](images/2b.jfif)
