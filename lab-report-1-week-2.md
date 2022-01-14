@@ -3,7 +3,7 @@
 > *This lab report will give the basic steps for connecting remotely to the UCSD ieng6 computers. Note these instructions are for Windows, MacOS steps may vary somewhat*
 
 ![Image](images/sshmeme.jpg)
-
+---
 ## Task 1: Installing VScode
 > VS Code is a popular IDE that can be used for many programming tasks
 
@@ -31,7 +31,7 @@
 
 ![Image](images/sshterminal.png)
 
-
+---
 ## Task 3: Trying Some Commands
 > *Now that you have connected remotely to the server, try running some commands through the terminal. Listed below are some examples:*
 
@@ -49,7 +49,7 @@
 ![Image](images/sshcommands.PNG)
 
 > *more linux commands can be found [here](https://ss64.com/bash/)*
-
+---
 ## Task 4: Moving Files with scp
 > *Since we are connecting remotely to a server, we will likely want to transfer files to be stored and run on the server. To do so, we use the `scp` command*
 
@@ -65,7 +65,7 @@
 > *Picture of terminal following the above steps to move a file*
 
 ![Image](images/scpterminal.png)
-
+---
 ## Task 5: Setting an SSH Key
 > *To avoid the hassle of using a password to login every time we want to connect to the server, we can use an SSH key to verify our identity to save time.*
 
@@ -110,6 +110,7 @@ scp your_public_key_path cs15lwi22???@ieng6.ucsd.edu:~/.ssh/authorized_keys
 
 ![Image](images/sshkeyterminal.png)
 
+---
 ## Task 6: Optimizing Remote Running
 > *Here are a few last tips to make using a remote server and terminal easier*
 
@@ -120,3 +121,5 @@ scp your_public_key_path cs15lwi22???@ieng6.ucsd.edu:~/.ssh/authorized_keys
 > *example of using multiple commands on one line and combining ssh with commands*
 
 ![Image](images/terminaltips.PNG)
+
+---
