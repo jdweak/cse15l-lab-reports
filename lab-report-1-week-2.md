@@ -29,7 +29,7 @@
 5. The first time connecting to the server, you will be asked to confirm since the authenticity of the host can't be estabilshed. Enter 'yes'.
 6. Enter your credential password. After this, you will be connected remotely to the UCSD server. Below is a terminal with the commands to ssh as explained above.
 
-![Image](images/sshterminal.PNG)
+![Image](images/sshterminal.png)
 
 
 ## Task 3: Trying Some Commands
@@ -113,4 +113,4 @@ scp your_public_key_path cs15lwi22???@ieng6.ucsd.edu:~/.ssh/authorized_keys
 
 > *example of using multiple commands on one line and combining ssh with commands*
 
-![Image](images/terminaltips.png)
+![Image](images/terminaltips.PNG)
