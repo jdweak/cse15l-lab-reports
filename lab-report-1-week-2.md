@@ -78,13 +78,13 @@
 # Make sure you're running as an Administrator.
 Get-Service ssh-agent | Set-Service -StartupType Manual
 
-# Start the service
+// Start the service
 Start-Service ssh-agent
 
-# This should return a status of Running
+// This should return a status of Running
 Get-Service ssh-agent
 
-# Now load your key files into ssh-agent
+// Now load your key files into ssh-agent
 ssh-add your_key_path
 
 ```
