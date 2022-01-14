@@ -73,19 +73,25 @@
 2. Enter the directory you want to store the key in (example: /Users/yourname/.ssh/id_rsa)
 3. Enter a passphrase for the ssh key
 4. Open a terminal on Windows Powershell, and use the following code to add the key to your computer (code excerpt from Microsoft documentation).
+
 ```
-# By default the ssh-agent service is disabled. Allow it to be manually started for the next step to work.
-# Make sure you're running as an Administrator.
-Get-Service ssh-agent | Set-Service -StartupType Manual
+// By default the ssh-agent service is disabled. Allow it to be manually started for the next step to work.
+
+// Make sure you're running as an Administrator.
+
+> Get-Service ssh-agent | Set-Service -StartupType Manual
 
 // Start the service
-Start-Service ssh-agent
+
+> Start-Service ssh-agent
 
 // This should return a status of Running
-Get-Service ssh-agent
+
+> Get-Service ssh-agent
 
 // Now load your key files into ssh-agent
-ssh-add your_key_path
+
+> ssh-add your_key_path
 
 ```
 5. On the remote server, create a .ssh directory and copy your public key to it using the scp command
