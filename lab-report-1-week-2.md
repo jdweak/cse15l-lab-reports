@@ -118,7 +118,27 @@ scp your_public_key_path cs15lwi22???@ieng6.ucsd.edu:~/.ssh/authorized_keys
 * You can run multiple commands on one line by seperating them with semicolons. This works with the above tip as well (note that any commands added after the quotes will run after disconnecting from the ssh)
 * You can access previous commands by using the up arrow
 
-> *example of using multiple commands on one line and combining ssh with commands*
+> *Let's consider an example of wanting to run a java file called WhereAmI.java multiple times on the remote server. How much can we increase efficiency?*
+
+* In the most basic case, we type out commands line by line to achieve this:
+```
+$scp WhereAmI.java cs15lwi22???@ieng6.ucsd.edu:~/
+$ssh cs15lwi22???@ieng6.ucsd.edu
+$javac WhereAmI.java
+$java WhereAmI
+$exit
+```
+*This is very inefficient, needing around 120 keystrokes every time we want to update and run WhereAmI.java on the remote server*
+
+* To Increase Effiency, use the up arrow to access each of the previous commands to run
+
+*This is more efficient, only needing about 17 keystrokes for all the listed commands*
+
+* Finally, if we combine all the commands into one command line we can use a single up arrow and enter to update and run our java file as many times as we want!
+```
+scp WhereAmI.java cs15lwi22???@ieng6.ucsd.edu:~/; ssh cs15lwi22???@ieng6.ucsd.edu "javac WhereAmI.java; java WhereAmI"
+```
+*This is very efficient, only needing 2 keystrokes after the first instance of typing out the command*
 
 ![Image](images/terminaltips.PNG)
 
