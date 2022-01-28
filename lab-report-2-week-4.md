@@ -8,9 +8,9 @@
 ## Change 1: 
 > Fix an infinite loop when [] appear without a link after it
 
-* In this case, the bug was a failure to handle the case of [] appearing without a link directly after in the file. This caused the program to enter an infinite loop since the break condition was based off of the index of the next ")", which was returned as negative 1. This caused the symptom of a OutOfMemoryError after the program looped enough to fill the stacks memory.
+* In this case, the bug was a failure to handle the case of [] appearing without a link directly after in the file. This caused the program to enter an infinite loop since the break condition was based off of the index of the next ")", which was returned as negative 1. This caused the symptom of an OutOfMemoryError after the program looped enough to fill the stack's memory.
 
-* [failure inducing input file](https://jdweak.github.io/cse15l-lab-reports/report-2-mdfiles/break1-file.md.html)
+* [failure inducing input file](https://github.com/jdweak/cse15l-lab-reports/blob/main/report-2-mdfiles/break1-file.md)
 
 ![Image](images/bug1.PNG)
 
@@ -28,7 +28,7 @@
 
 * In this case, the bug was a failure to handle the case of a file ending in "]". This was caused by the new check added in change 1 to see if a link was really after a "]". Since the code checks the next character after the "]", a file ending with a "]" will try to check an out of bounds index, resulting in the symptom of throwing an IndexOutOfBoundsError.
 
-* [failure inducing input file](https://jdweak.github.io/cse15l-lab-reports/report-2-mdfiles/break2-file.md.html)
+* [failure inducing input file](https://github.com/jdweak/cse15l-lab-reports/blob/main/report-2-mdfiles/break2-file.md)
 
 ![Image](images/bug2.PNG)
 
@@ -42,7 +42,7 @@
 
 * In this case, the bug was a failure to handle the case of words in parenthases appearing in the file with no []. Since the file looked for () after the index of "]" (being -1 since it's not in the file), it would find and accept the "(" at the beginning of the file. This caused the symptom of printing out the word in parentheses without it being a link.
 
-* [failure inducing input file](https://jdweak.github.io/cse15l-lab-reports/report-2-mdfiles/break3-file.md.html)
+* [failure inducing input file](https://github.com/jdweak/cse15l-lab-reports/blob/main/report-2-mdfiles/break3-file.md)
 
 ![Image](images/bug3.PNG)
 > *Bug was fixed by adding a check to make sure the index for "[" and "]" was not -1 (ie they are in the file).*
