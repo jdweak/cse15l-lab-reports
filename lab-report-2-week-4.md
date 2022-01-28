@@ -3,8 +3,10 @@
 > *This lab report will go over the debugging process for code that prints all the links in a markdown file.*
 
 ![Image](images/debuggingmeme.jpg)
-> *[Image Source](https://www.reddit.com/r/ProgrammerHumor/comments/9g4vml/debugging_be_like/)*
+*[Image Source](https://www.reddit.com/r/ProgrammerHumor/comments/9g4vml/debugging_be_like/)*
+
 ---
+
 ## Change 1: 
 > Fix an infinite loop when [] appear without a link after it
 
