@@ -11,6 +11,9 @@
 
 >[Lab Report 3: Remote Github Access](https://jdweak.github.io/cse15l-lab-reports/lab-report-3-week-6.html)
 
+>[Lab Report 4: MarkdownParse Script Debugging](https://jdweak.github.io/cse15l-lab-reports/lab-report-4-week-8.html)
+
+
 <p align="center">
   <img src="images/2b.jfif"/>
 </p>
