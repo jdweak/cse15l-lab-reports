@@ -1,83 +1,147 @@
-# Week 4 Lab Report: Remote Github Access
+# Week 6 Lab Report: MarkdownParse Script Debugging
 
-> *This lab report will go over how to add an ssh key to your github in order to
-> be able to push changes from a remote server.*
+> *This lab report will go over the testing of my MarkdownParse code and
+> professor Politz's MarkdownParseCode against edge cases.*
 
-![Image](images/gitfirememe.png)
-*[Image Source](htt/s://github.com/hendrixroa/in-case-of-fire/blob/master/README.md)*
-
----
-
-## SSH and GitHub: 
-> Recently, Github removed support for using password authentication for pushing
-> from the command line, now requiring ssh keys.
-
-![Image](images/giterror.PNG)
-
-*As you can see, when trying to push changes on the ieng6 remote server we are
-given an error. We can get around this by adding an ssh key to our Github
-account*
+![Image](images/edgeCase.jpg)
+*[Image Source](https://www.reddit.com/r/ProgrammerHumor/comments/oxq5no/edge_cases_be_like/)*
 
 ---
 
-## Linking SSH to your GitHub
-> Here we will go over the steps for adding an ssh key to your github
+## MarkdownParse and Testing Procedure 
+> The programs being tested are called MarkdownParse.java. The script takes a
+> markdown file name as an input and is supposed to return a list of  all of the
+> properly formatted links in the file. We test edge cases using JUnit tests and
+> run them here using a Makefile.
 
-1. From your remote server, create a new ssh key by using the ```ssh-keygen```
-   command. More detailed instructions can be found on [lab report
-   1](https://jdweak.github.io/cse15l-lab-reports/lab-report-1-week-2.html).
-   
-   * Your new public and private ssh keys can be found in the .ssh folder:
+![Image](images/makeFilePicture.PNG)
 
-![Image](images/sshremotefilelocation.png)
-   
-2. Navigate to your .ssh folder and copy the contents of your PUBLIC ssh key.
-   This can be done by using ```cat <public key file location>```. This will
-   print the contents to the terminal, which can then be selected and copied.
+*The above picture shows the Makefile for running the Junit tests in the lab.
+The Junit tests are in a class called Lab4MarkdownParseTest and the tests can be
+run using the command ```make labTest```*
 
-3. Navigate to your GitHub account, then go Settings->SSH and GPG keys->New SSH
-   Key
+* Below are the github links for the two MarkdownParse programs we are testing
 
-4. Paste in the contents of the public key that you copied earlier, name the key
-   something descriptive of its location/use (ex ieng6 key)
-
-    * Your key should now be visible in your GitHub SSH keys list:
-
-![Image](images/githubsshkeys.PNG)
-
-5. Importantly, we have to make sure our git is using SSH instead of HTTPS
-   protocol. Navigate to your repository, click on code->SSH->copy
-
-6. SSH back to your remote server, then navigate to your git repository
-   location. Enter ```git remote set-url origin <your copied git ssh orgin>```
-
-7. Now, we should be set up for using git with ssh keys
+    * [My MarkdownParse](https://github.com/jdweak/markdown-parse)
+    * [Professor Politz's MarkdownParse](https://github.com/ucsd-cse15l-w22/markdown-parse)
 
 ---
 
-## Demonstration
-> Lets demo here how we can now push changes to the orgin on the terminal from
-> the remote server
+## Markdown Snippet 1
+> Here we go over testing how the programs handle the first edge case snippet shown
+> below
 
-* First we'll create a new file in our repository called newFile.md using the
-  ```touch``` command, then commit it by using ```git add newFile.md``` and
-  ```git commit -m "commit message"```
+![image](images/snippet1.PNG)
 
-![Image](images/gitcreatecommit.PNG)
+1. Using the preview slide of visual studio code, we can determine that our
+   MarkdownParse programs should return a list of [`google.com, google.com,
+   ucsd.edu].
+2. We can now write a JUnit test to compare the values returned by Markdownparse
+   to our expeced values:
+   ![image](images/snippet1Test.PNG)
+3. Running the Junit using our Makefile command, we get the following output
+   when testing MarkdownParse on snippet 1:
 
-* Next, we'll push our local commit to the remote orgin using ```git push```.
-  Notice we are able to do this now since we have set up our ssh key.
+> Politz's MarkdownParse:
 
-![Image](images/gitgoodpush.PNG)
+![image](/images/snippet1PolitzFail.PNG)
 
-* Going back to our global repository, we can now see our new file with its
-  commit message (repo can be found [here](https://github.com/jdweak/skill-demo))
+* This implementaiton fails on snippet 1. We can see this in the
+  java.lang.AssertionError, meaning the returned value was different than the
+  expected. It retuned url.com when it shouldn't have.
 
-![Image](images/gitnewfileinrepo.PNG)
+> My MarkdownParse:
+
+![image](/images/snippet1MyFail.PNG)
+* This implementaiton fails on snippet 1. We can see this in the
+  java.lang.AssertionError, meaning the returned value was different than the
+  expected. The program returned url.com when it shouldn't have and failed to
+  return ucsd.edu.
+
+ * There is not a small code change that will allow the program to handle this
+   edge case. Conceptually, you would need to have the program ignore all
+   instances of inline code using barticks (ie take them out of the text
+   considered when the program is running). However, since there are also edge
+   cases in creating inline code (ex in snippet 1 si where the parentheses cuts
+   it off in the second link) you would need to write a large amount of code to
+   figure out what to exclude.
+
+
+---
+## Markdown Snippet 2
+> Here we go over testing how the programs handle the second edge case snippet shown
+> below
+
+![image](images/snippet2.PNG)
+
+1. Using the preview slide of visual studio code, we can determine that our
+   MarkdownParse programs should return a list of [a.com, a.com(()), example.com].
+2. We can now write a JUnit test to compare the values returned by Markdownparse
+   to our expeced values:
+   ![image](images/snippet2Test.PNG)
+3. Running the Junit using our Makefile command, we get the following output
+   when testing MarkdownParse on snippet 2:
+
+> Politz's MarkdownParse:
+
+![image](/images/snippet2PolitzGood.PNG)
+
+* This implementaiton passes on snippet 2. When running the JUnit test all
+  snippets are tested at the same time, so notice how 3 tests were run but only
+  2 failed.
+
+> My MarkdownParse:
+
+![image](/images/snippet2MyFail.PNG)
+* This implementaiton fails on snippet 1. We can see this in the
+  java.lang.AssertionError, meaning the returned value was different than the
+  expected. The program did not return any links even though it should have.
+
+ * There is a relatively small code addition that could be added to handle this
+   edge case. It
+   would involve changing the code for finding new square brackets and parentheses to check for
+   nesting. In essence it would keep track of new open parentheses or square
+   brackets and only return the closed index when it matches how many open
+   things there are (ex if there are 2 open [ the code would only return the
+   closed index once reaching the second ] after the starting index).   
 
 ---
 
+## Markdown Snippet 3
+> Here we go over testing how the programs handle the third edge case snippet shown
+> below
 
+![image](images/snippet3.PNG)
+
+1. Using the preview slide of visual studio code, we can determine that our
+   MarkdownParse programs should return a list of [https://www.twitter.com, https://ucsd-cse15l-w22.github.io/, https://cse.ucsd.edu/].
+2. We can now write a JUnit test to compare the values returned by Markdownparse
+   to our expeced values:
+   ![image](images/snippet3Test.PNG)
+3. Running the Junit using our Makefile command, we get the following output
+   when testing MarkdownParse on snippet 3:
+
+> Politz's MarkdownParse:
+
+![image](/images/snippet3PolitzFail.PNG)
+
+* This implementaiton fails on snippet 3. We can see this in the
+  java.lang.AssertionError, meaning the returned value was different than the
+  expected. Here we see that the program failed to return https://cse.ucsd.edu/.
+
+> My MarkdownParse:
+
+![image](/images/snippet3MyFail.PNG)
+* This implementaiton fails on snippet 1. We can see this in the
+  java.lang.AssertionError, meaning the returned value was different than the
+  expected. The program failed to return any of the links in the snippet. 
+
+ * There is a small code change that would allow the program to handle newlines
+   nested in brackets and parentheses. Since newlines do not affect whether a
+   link exists in md files, we want our code to ignore them. We can accomplish
+   this by using the string function removeAll() to get rid of the newlines
+   before running our program on the text.
+---
 
 
 
