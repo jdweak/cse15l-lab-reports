@@ -1,7 +1,7 @@
 # Week 6 Lab Report: MarkdownParse Script Debugging
 
-> *This lab report will go over the testing of my MarkdownParse code and
-> professor Politz's MarkdownParseCode against edge cases.*
+> *This lab report will go over the testing of my and another student's 
+>  MarkdownParseCode against edge cases.*
 
 ![Image](images/edgeCase.jpg)
 *[Image Source](https://www.reddit.com/r/ProgrammerHumor/comments/oxq5no/edge_cases_be_like/)*
@@ -23,7 +23,7 @@ run using the command ```make labTest```*
 * Below are the github links for the two MarkdownParse programs we are testing
 
     * [My MarkdownParse](https://github.com/jdweak/markdown-parse)
-    * [Professor Politz's MarkdownParse](https://github.com/ucsd-cse15l-w22/markdown-parse)
+    * [Other Student's Markdownparse](https://github.com/ucsd-cse15l-w22/markdown-parse)
 
 ---
 
@@ -42,7 +42,7 @@ run using the command ```make labTest```*
 3. Running the Junit using our Makefile command, we get the following output
    when testing MarkdownParse on snippet 1:
 
-> Politz's MarkdownParse:
+> Other Student's MarkdownParse:
 
 ![image](/images/snippet1PolitzFail.PNG)
 
@@ -82,13 +82,14 @@ run using the command ```make labTest```*
 3. Running the Junit using our Makefile command, we get the following output
    when testing MarkdownParse on snippet 2:
 
-> Politz's MarkdownParse:
+> Other Student's MarkdownParse:
 
 ![image](/images/snippet2PolitzGood.PNG)
 
-* This implementaiton passes on snippet 2. When running the JUnit test all
-  snippets are tested at the same time, so notice how 3 tests were run but only
-  2 failed.
+* This implementaiton fails on snippet 2. We can see this in the
+  java.lang.AssertionError, meaning the returned value was different than the
+  expected. The program returned b.com when it shouldn't have and didn't return
+  a.com even though it should have.
 
 > My MarkdownParse:
 
@@ -121,13 +122,14 @@ run using the command ```make labTest```*
 3. Running the Junit using our Makefile command, we get the following output
    when testing MarkdownParse on snippet 3:
 
-> Politz's MarkdownParse:
+> Other Student's MarkdownParse:
 
 ![image](/images/snippet3PolitzFail.PNG)
 
 * This implementaiton fails on snippet 3. We can see this in the
   java.lang.AssertionError, meaning the returned value was different than the
-  expected. Here we see that the program failed to return https://cse.ucsd.edu/.
+  expected. Here we see that the program failed to return any of the expected
+  links in the snippet.
 
 > My MarkdownParse:
 
