@@ -23,7 +23,7 @@ run using the command ```make labTest```*
 * Below are the github links for the two MarkdownParse programs we are testing
 
     * [My MarkdownParse](https://github.com/jdweak/markdown-parse)
-    * [Other Student's Markdownparse](https://github.com/ucsd-cse15l-w22/markdown-parse)
+    * [Other Student's Markdownparse](https://github.com/atruong39/markdown-parse)
 
 ---
 
