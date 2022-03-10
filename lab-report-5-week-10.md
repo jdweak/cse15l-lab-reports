@@ -1,6 +1,6 @@
 # Week 10 Lab Report: MarkdownParse Implementation Comparison
 
-> *This lab report will run my and a provided MarkdownParse implementation and
+> This lab report will run my and a provided MarkdownParse implementation and
 > run it against a large folder of markdown files. Two test files where the
 > outputs are different will be chosen to analyze. 
 
@@ -83,4 +83,12 @@ the current iteration has a valid link*
   through the markdown and prematurely returns the list its building (which at
   this point contains nothing).
 
-  ![image](482mdbug.PNG)
+  ![image](images/482mdbug.PNG)
+
+  *Notice how in the above code the break is called after the
+  IndexOutOfBoundsException is thrown when trying to check before the first "[".
+  Instead of breaking, this execute the same code as inside the if statement, as
+  it implicitly means that there is no "!" before the "[", making it a good link
+  in this context.*
+
+  ---
