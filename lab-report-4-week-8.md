@@ -1,4 +1,4 @@
-# Week 6 Lab Report: MarkdownParse Script Debugging
+# Week 8 Lab Report: MarkdownParse Script Debugging
 
 > *This lab report will go over the testing of my and another student's 
 >  MarkdownParseCode against edge cases.*
